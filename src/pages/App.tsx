@@ -1,10 +1,13 @@
 import React from 'react'
-import logo from './../ui/nii-center.png'
-import { RouteMap } from './../pages/Router';
-import { Tree } from './../pages/Tree';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Button, createStyles, makeStyles, Theme } from 'material-ui-core'
 import { NavLink } from 'react-router-dom'
+
+import logo from './../ui/nii-center.png'
+import { RouteMap } from './../pages/Router';
+import { Tree } from './../pages/Tree';
+import { NiiCentreColor } from '../common/color.base'
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -12,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) =>
       textAlign: 'center'
     },
     app__nav: {
-      backgroundColor: '#202327',
+      backgroundColor: NiiCentreColor.nav_bg,
       height: '4rem',
       display: 'flex',
       flexDirection: 'row',
@@ -22,12 +25,12 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     app__nav_item: {
       padding: theme.spacing(2),
-      color: '#868D9A',
+      color: NiiCentreColor.nav__item,
+      backgroundColor: NiiCentreColor.nav__item_bg,
       fontWeight: 'bold',
-      backgroundColor: '#282C34',
       '&:hover': {
-        backgroundColor: '#7F889A',
-        color: '#282C34',
+        color: NiiCentreColor.nav__item_hover,
+        backgroundColor: NiiCentreColor.nav__item_hover_bg,
       }
     },
     app__main_image: {
