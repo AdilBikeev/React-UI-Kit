@@ -12,7 +12,7 @@ import { NiiCentreColor } from '../common/color.base'
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     app: {
-      textAlign: 'center'
+     
     },
     app__nav: {
       backgroundColor: NiiCentreColor.nav_bg,
@@ -35,7 +35,8 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     app__main_image: {
       maxWidth: '100%',
-      height: 'auto'
+      height: 'auto',
+      textAlign: 'center'
     }
   })
 );
@@ -60,7 +61,9 @@ export const App: React.FC = () => {
         </nav>
         <Switch>
           <Route exact path={`${RouteMap.main}`}
-            render={() => <img src={logo} className={classes.app__main_image} alt='react' />} />
+            render={() => (<div className={classes.app__main_image}>
+              <img src={logo} alt='react' />
+            </div>)} />
           <Route exact path={`${RouteMap.Tree}`}
             render={() => <Tree />} />
         </Switch>
