@@ -1,27 +1,17 @@
 ﻿import React from 'react';
-import { createStyles, makeStyles, Theme } from 'material-ui-core'
-import clsx from 'clsx'
 
 import classes from '../blocks/tree.module.css'
-
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        tree_container: {
-            
-        }
-    })
-);
+import { TreeNode, TreeNodeObj } from './TreeNode';
 
 interface Props {
-    
+    subNode: TreeNodeObj[]
 }
 
-export const TreeContainer: React.FC = () => {
-    const customClasses = useStyles();
+export const TreeContainer: React.FC<Props> = ({
+    subNode
+}) => {
 
     return (<ul className={classes.Container}>
-        <li>
-
-        </li>
+        {subNode.map((node, index) => (<TreeNode key={index} {...node}/>))}
     </ul>);
 }
