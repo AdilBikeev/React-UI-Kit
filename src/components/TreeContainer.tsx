@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 
-import classes from '../blocks/tree.module.css'
+import classes from '../blocks/tree/tree.module.css'
 import { TreeNode, TreeNodeObj } from './TreeNode';
 
 interface Props {

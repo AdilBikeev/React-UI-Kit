@@ -1,7 +1,7 @@
 ﻿import React, { useState } from 'react';
 import clsx from 'clsx'
 
-import classes from '../blocks/tree.module.css'
+import classes from '../blocks/tree/tree.module.css'
 import { TreeContainer } from './TreeContainer';
 
 interface Props {
