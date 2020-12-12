@@ -68,6 +68,12 @@
     background-image: url(/src/ui/leaf.gif);
   }
   
+  /* не последний и не перевый узел */
+  .IsMiddle .Expand {
+    background-image: url(/src/ui/t.gif);
+  }
+    
+
   .Node {
     margin-left: 18px;
     zoom: 1;
@@ -80,7 +86,7 @@
   /* это правило - ниже .Node, поэтому имеет больший приоритет */
   .IsLast {
     /* добавить соединительную черточку наверх */
-    background-image: url(/src/ui/i_half.gif);
+    background-image: url(/src/ui/l.gif);
     background-repeat : no-repeat;
   }
   
