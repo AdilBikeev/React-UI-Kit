@@ -4,29 +4,31 @@ import clsx from 'clsx'
 import classes from '../blocks/tree.module.css'
 import { TreeContainer } from './TreeContainer';
 
+interface Props {
+    index: number,
+}
+
 export interface TreeNodeObj {
-    isRoot?: boolean,
-    isLeaf?: boolean,
-    content: HTMLElement
-    subNode?: TreeNodeObj[]
+    content: HTMLElement | string
+    subNodes?: TreeNodeObj[]
 }
 
 /**
  * Узел дерева
- * @param isRoot Укказывает явлется ли узел корневым 
- * @param isLeaf Укказывает явлется ли узел листом 
+ * @param key Индекс узла
  * @param content Контент узла
- * @param subNode Дочерние узлы
+ * @param subNodes Дочерние узлы
  */
-export const TreeNode: React.FC<TreeNodeObj> = ({
-    isRoot,
-    isLeaf,
+export const TreeNode: React.FC<TreeNodeObj & Props> = ({
+    index,
     content,
-    subNode
+    subNodes
 }) => {
 
     /* TODO: Поменять на единый обработчик для всех элементов через Redux или Effector  */
     const [isExpanded, setExpanded] = useState(false)
+    const isRoot = index === 0
+    const isLeaf = !subNodes || subNodes.length === 0
 
     return (<li className={clsx(classes.Node, {
         [classes.isRoot]: isRoot,
@@ -38,7 +40,7 @@ export const TreeNode: React.FC<TreeNodeObj> = ({
         <div className={classes.Expand} onClick={() => setExpanded(!isExpanded)}></div>
         <div className={classes.Content}>{content}</div>
         {
-            (subNode && subNode.length !== 0 ? <TreeContainer subNode={subNode} /> : <></>)
+            !isLeaf ? <TreeContainer subNodes={subNodes} /> : <></>
         }
     </li>);
 }

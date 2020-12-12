@@ -4,14 +4,18 @@ import classes from '../blocks/tree.module.css'
 import { TreeNode, TreeNodeObj } from './TreeNode';
 
 interface Props {
-    subNode: TreeNodeObj[]
+    subNodes?: TreeNodeObj[]
 }
 
 export const TreeContainer: React.FC<Props> = ({
-    subNode
+    subNodes
 }) => {
 
     return (<ul className={classes.Container}>
-        {subNode.map((node, index) => (<TreeNode key={index} {...node}/>))}
+        {subNodes?.map((node, index) => (<TreeNode key={index}
+                                                  index={index}
+                                                  {...node} />)
+            )
+        }
     </ul>);
 }
