@@ -60,7 +60,7 @@
   
   /* закрытое поддерево */
   .ExpandClosed .Expand {
-    background-image: url(/src/ui/plus2.svg);
+    background-image: url(/src/ui/plus.svg);
   }
   
   /* лист */
