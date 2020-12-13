@@ -1,0 +1,26 @@
+﻿[
+    {
+        "header": "Item 1",
+        "desc": "Desc 1",
+        "subNodes": [
+            {
+                "header": "Item 1.1",
+                "desc": "Desc 1.1"
+            }
+        ]
+    },
+    {
+        "header": "Item 2",
+        "desc": "Desc 2",
+        "subNodes": [
+            {
+                "header": "Item 2.1",
+                "desc": "Desc 2.1"
+            }
+        ]
+    },
+    {
+        "header": "Item 3",
+        "desc": "Desc 3"
+    }
+]

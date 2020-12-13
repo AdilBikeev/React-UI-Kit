@@ -14,22 +14,35 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export const Tree: React.FC = () => {
+export interface TreeElement {
+  header: string,
+  descr: string,
+  subNodes?: TreeElement[]
+}
+
+const mapTreeData = (depth: number, tree?: TreeElement[]): TreeNodeObj[] | null => {
+  if (!tree || depth === 20)
+    return null
+  depth++
+  return tree.map(elem => ({
+    content: <InfoBlock header={elem.header} desc={elem.descr}/>, 
+    subNodes: mapTreeData(depth, elem.subNodes)
+  }) as TreeNodeObj)
+}
+
+interface Props {
+  tree?: TreeElement[]
+}
+
+export const Tree: React.FC<Props> = ({
+  tree = require('../data/tree-data.json') as TreeElement[]
+}) => {
   const customClasses = useStyles();
 
-  const subNodes: TreeNodeObj[] = [
-    { content: <InfoBlock header={"Москва"} desc={"Столица России"}/>, subNodes: [
-      { content: 'Item 1.1' },
-      { content: 'Item 1.2' }
-    ] },
-    { content: <InfoBlock header={"Калининград"} desc={"Далеко..."}/>, subNodes: [
-      { content: 'Item 2.1' },
-      { content: 'Item 2.2' },
-      { content: 'Item 2.3' },
-      { content: 'Item 2.4' }
-    ]},
-    { content: 'Item 3' }
-  ] 
+  let subNodes: TreeNodeObj[] = tree ? tree.map(elem => ({
+    content: <InfoBlock header={elem.header} desc={elem.descr}/>, 
+    subNodes: mapTreeData(0, elem.subNodes)
+  } as TreeNodeObj)) : []
 
   return (
     <div className={customClasses.tree}>
