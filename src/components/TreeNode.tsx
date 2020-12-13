@@ -11,7 +11,7 @@ interface Props {
 }
 
 export interface TreeNodeObj {
-    content: HTMLElement | string
+    content: React.ReactElement | string
     subNodes?: TreeNodeObj[]
 }
 

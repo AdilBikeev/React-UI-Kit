@@ -4,6 +4,7 @@ import { createStyles, makeStyles, Theme } from 'material-ui-core'
 
 import {TreeContainer} from '../components/TreeContainer'
 import { TreeNodeObj } from '../components/TreeNode';
+import { InfoBlock } from '../components/InfoBlock';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -17,11 +18,11 @@ export const Tree: React.FC = () => {
   const customClasses = useStyles();
 
   const subNodes: TreeNodeObj[] = [
-    { content: 'Item 1', subNodes: [
+    { content: <InfoBlock header={"Москва"} desc={"Столица России"}/>, subNodes: [
       { content: 'Item 1.1' },
       { content: 'Item 1.2' }
     ] },
-    { content: 'Item 2', subNodes: [
+    { content: <InfoBlock header={"Калининград"} desc={"Далеко..."}/>, subNodes: [
       { content: 'Item 2.1' },
       { content: 'Item 2.2' },
       { content: 'Item 2.3' },
