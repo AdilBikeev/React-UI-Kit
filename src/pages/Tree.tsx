@@ -9,7 +9,10 @@ import { InfoBlock } from '../components/InfoBlock';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     tree: {
-        float: 'left'
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        margin: '10% 0'
     }
   })
 );
@@ -46,7 +49,8 @@ export const Tree: React.FC<Props> = ({
 
   return (
     <div className={customClasses.tree}>
-      <div>Root</div>
+      <TreeContainer subNodes={subNodes}/>
+      <TreeContainer subNodes={subNodes}/>
       <TreeContainer subNodes={subNodes}/>
     </div>
   );
