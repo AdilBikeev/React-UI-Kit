@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export interface TreeElement {
   header: string,
-  descr: string,
+  desc: string,
   subNodes?: TreeElement[]
 }
 
@@ -25,7 +25,7 @@ const mapTreeData = (depth: number, tree?: TreeElement[]): TreeNodeObj[] | null 
     return null
   depth++
   return tree.map(elem => ({
-    content: <InfoBlock header={elem.header} desc={elem.descr}/>, 
+    content: <InfoBlock header={elem.header} desc={elem.desc}/>, 
     subNodes: mapTreeData(depth, elem.subNodes)
   }) as TreeNodeObj)
 }
@@ -40,7 +40,7 @@ export const Tree: React.FC<Props> = ({
   const customClasses = useStyles();
 
   let subNodes: TreeNodeObj[] = tree ? tree.map(elem => ({
-    content: <InfoBlock header={elem.header} desc={elem.descr}/>, 
+    content: <InfoBlock header={elem.header} desc={elem.desc}/>, 
     subNodes: mapTreeData(0, elem.subNodes)
   } as TreeNodeObj)) : []
 
