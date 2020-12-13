@@ -10,9 +10,11 @@ const useStyles = makeStyles((theme: Theme) =>
             color: InfoBlockColor.text
         },
         infoBlock__header : {
+            fontSize: '1.5rem',
             textAlign: 'center',
             borderRadius: '1rem 1rem 0% 0%',
-            backgroundColor: InfoBlockColor.header_bg
+            backgroundColor: InfoBlockColor.header_bg,
+            padding: theme.spacing(2)
         },
         infoBlock__desc : {
             backgroundColor: InfoBlockColor.desc_bg,
