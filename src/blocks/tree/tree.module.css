@@ -65,7 +65,14 @@
   .ExpandClosed .Expand {
     background-image: url(/src/ui/plus.svg);
   }
-  
+
+  /* Отступ между закрытыми поддеревьями */
+  .ExpandClosed::after {
+    height: 20px;
+    content: '.';
+    font-size: 0;
+  }
+
   /* лист */
   .ExpandLeaf .Expand {
     background-image: url(/src/ui/leaf.gif);
@@ -78,7 +85,7 @@
     
 
   .Node {
-    margin-left: 18px;
+    margin-left: 34px;
     zoom: 1;
     /* линия слева образуется повторяющимся фоновым рисунком */
     background-image : url(/src/ui/i.gif);
