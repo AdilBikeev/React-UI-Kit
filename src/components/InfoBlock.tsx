@@ -2,18 +2,20 @@
 import React from 'react';
 import { createStyles, makeStyles, Theme } from 'material-ui-core'
 
+import { InfoBlockColor } from '../common/color.base'
+
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         infoBlock: {
-            color: '#50c8ef'
+            color: InfoBlockColor.text
         },
         infoBlock__header : {
             textAlign: 'center',
             borderRadius: '1rem 1rem 0% 0%',
-            backgroundColor: '#0284C3'
+            backgroundColor: InfoBlockColor.header_bg
         },
         infoBlock__desc : {
-            backgroundColor: '#266F92',
+            backgroundColor: InfoBlockColor.desc_bg,
             borderRadius: '0% 0% 1rem 1rem',
             textAlign: 'center',
             padding: theme.spacing(1)

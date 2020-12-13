@@ -10,3 +10,13 @@ export const NiiCentreColor = {
     nav__item_hover: '#282C34',
     nav__item_hover_bg: '#7F889A',
 }
+
+/**
+ * Цвета для компоненты InfoBlock
+ */
+export const InfoBlockColor = {
+    text:  '#50c8ef',
+
+    header_bg:  '#0284C3',
+    desc_bg:  '#266F92',
+}
