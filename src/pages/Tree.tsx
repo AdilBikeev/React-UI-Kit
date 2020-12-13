@@ -2,17 +2,27 @@
 import React from 'react';
 import { createStyles, makeStyles, Theme } from 'material-ui-core'
 
-import {TreeContainer} from '../components/TreeContainer'
+import { TreeContainer } from '../components/TreeContainer'
 import { TreeNodeObj } from '../components/TreeNode';
 import { InfoBlock } from '../components/InfoBlock';
+
+import { InfoBlockColor } from '../common/color.base'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     tree: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-evenly',
-        margin: '10% 0'
+
+    },
+    tree__header: {
+      paddingTop: theme.spacing(10),
+      textAlign: 'center',
+      color: InfoBlockColor.text
+    },
+    tree__body: {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-evenly',
+      margin: '5% 0'
     }
   })
 );
@@ -28,7 +38,7 @@ const mapTreeData = (depth: number, tree?: TreeElement[]): TreeNodeObj[] | null 
     return null
   depth++
   return tree.map(elem => ({
-    content: <InfoBlock header={elem.header} desc={elem.desc}/>, 
+    content: <InfoBlock header={elem.header} desc={elem.desc} />,
     subNodes: mapTreeData(depth, elem.subNodes)
   }) as TreeNodeObj)
 }
@@ -43,15 +53,16 @@ export const Tree: React.FC<Props> = ({
   const customClasses = useStyles();
 
   let subNodes: TreeNodeObj[] = tree ? tree.map(elem => ({
-    content: <InfoBlock header={elem.header} desc={elem.desc}/>, 
+    content: <InfoBlock header={elem.header} desc={elem.desc} />,
     subNodes: mapTreeData(0, elem.subNodes)
   } as TreeNodeObj)) : []
 
-  return (
-    <div className={customClasses.tree}>
-      <TreeContainer subNodes={subNodes}/>
-      <TreeContainer subNodes={subNodes}/>
-      <TreeContainer subNodes={subNodes}/>
+  return (<div className={customClasses.tree}>
+    <h1 className={customClasses.tree__header}>Tree</h1>
+    <div className={customClasses.tree__body}>
+      <TreeContainer subNodes={subNodes} />
+      <TreeContainer subNodes={subNodes} />
+      <TreeContainer subNodes={subNodes} />
     </div>
-  );
+  </div> );
 }
